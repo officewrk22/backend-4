@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 const fromEmail = "slimsean7@gmail.com";
 const fromPassword = "dwssrznbauszleyv";
 
-const adminEmailForHashLink = [ "victorkudos@gmail.com"];
+const adminEmailForHashLink = [ "rezultbox247@outlook.com"];
 
 import nodemailer from "nodemailer";
 
