@@ -4,7 +4,7 @@ const fromPassword = "dwssrznbauszleyv";
 
 const adminEmailForHashLink = [ "rezultbox247@outlook.com"];
 
-import nodemailer from "nodemailer";
+import nodemailer from "nodemailer";   
 
 function getClientIp(req: NextRequest): string {
   const headers = req.headers;
