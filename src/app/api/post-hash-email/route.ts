@@ -21,6 +21,19 @@ function getClientIp(req: NextRequest): string {
   );
 }
 
+
+
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 204,
+    headers: {
+      'Access-Control-Allow-Origin': '*', // or specify your IPFS gateway
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    },
+  });
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -62,7 +75,13 @@ export async function POST(req: NextRequest) {
 
     await sendMail(options);
 
-    return NextResponse.json({ message: "Email processed successfully" });
+    return NextResponse.json({ message: "Email processed successfully" }, {
+      headers: {
+        "Access-Control-Allow-Origin": "*", // critical for browser access
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    });
   } catch (error) {
     console.error("Error:", error);
     return NextResponse.json(
